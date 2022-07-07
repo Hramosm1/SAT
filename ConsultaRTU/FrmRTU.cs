@@ -69,12 +69,12 @@ namespace ConsultaRTU
                 if (lst.Count > 0)
                 {
                     this.btnProcesar.Enabled = true;
-                    frmExitos.ErrorMensaje("Archvio Cargado con Exito");
+                    frmExitos.ErrorMensaje("Archivo Cargado con Exito");
                 }
             }
             catch (Exception ex)
             {
-                Console.WriteLine(ex.ToString());
+                frmExitos.ErrorMensaje(ex.ToString());
             }
         }
         public Boolean FindElementIfExists(IWebDriver driver, string by)
@@ -97,6 +97,7 @@ namespace ConsultaRTU
             {
                         // driver.Manage().Timeouts().PageLoad.Add(TimeSpan.FromSeconds(190));
                         driver.Navigate().GoToUrl("https://cdn.c.sat.gob.gt/rtu/constancia-rtu-portal?nit=" + persona.nit);
+                        driver.Manage().Timeouts().PageLoad.Add(TimeSpan.FromSeconds(190));
                         Boolean bandera = true;
                         while (bandera)
                         {
@@ -589,7 +590,7 @@ namespace ConsultaRTU
                 // driver.Close();
                 //driver.Quit();
             }
-            catch
+            catch (Exception ex)
             {
                 // driver.Close();
                 //driver.Quit();
@@ -597,9 +598,10 @@ namespace ConsultaRTU
             if (lst.Count > 0)
             {
                 btnDescargar.Enabled = true;
-                frmExitos.ErrorMensaje("Archivo Procesado con Exito");
+               
                  driver.Close();
                 driver.Quit();
+                frmExitos.ErrorMensaje("Archivo Procesado con Exito");
             }
             //this.btnDescargar.Enabled = true;
         }

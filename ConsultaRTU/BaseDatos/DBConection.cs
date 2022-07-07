@@ -20,7 +20,7 @@ namespace ConsultaRTU.BaseDatos
             try
             {
                 string sql;
-                sql = $"SELECT DPI, NIT, NOMBRE_COMPLETO, FECHA_NACIMIENTO, FECHA_CREACION, NOTIFICACION_2 FROM SALUD.PERSONAS_SAT WHERE DPI = {Persona.dpi}";
+                sql = $"SELECT DPI, NIT, NOMBRE_COMPLETO, FECHA_NACIMIENTO, FECHA_CREACION, NOTIFICACION_2 FROM SALUD.PERSONAS_SAT WHERE DPI = { Persona.dpi}";
                 SqlCommand comando = new SqlCommand(sql, conexion);
                 SqlDataReader registro = comando.ExecuteReader();
 
@@ -54,15 +54,16 @@ namespace ConsultaRTU.BaseDatos
             try
             {
                 string sql;
-                sql = "SELECT  NIT, DPI, PRIMER_NOMBRE, SEGUNDO_NOMBRE, PRIMER_APELLIDO, SEGUNDO_APELLIDO, APELLIDO_CASADA, " +
+                /*sql = "SELECT  NIT, DPI, PRIMER_NOMBRE, SEGUNDO_NOMBRE, PRIMER_APELLIDO, SEGUNDO_APELLIDO, APELLIDO_CASADA, " +
                     " CEDULA, FECHA_NACIMIENTO, SEXO, NACIONALIDAD, ESTADO_CIVIL, NOMBRE_COMERCIAL, NUMERO_ESTABLECIMIENTO, " +
                     " ESTADO_ESTABLECIMIENTO, ULTIMA_ACTUALIZACION " +
-                    " FROM SALUD.PERSONAS_RTU WHERE NIT = @NIT";
+                    " FROM SALUD.PERSONAS_RTU WHERE NIT = @NIT";*/
+                sql = $"SELECT isnull(NIT,''), isnull(DPI,''), isnull(PRIMER_NOMBRE,''), isnull(SEGUNDO_NOMBRE,''), isnull(PRIMER_APELLIDO,''), isnull(SEGUNDO_APELLIDO,''), isnull(APELLIDO_CASADA,''),  isnull(CEDULA,''), FECHA_NACIMIENTO, isnull(SEXO,''), isnull(NACIONALIDAD,''), isnull(ESTADO_CIVIL,''), isnull(NOMBRE_COMERCIAL,''), convert(INT,NUMERO_ESTABLECIMIENTO),  isnull(ESTADO_ESTABLECIMIENTO,''), ULTIMA_ACTUALIZACION  FROM SALUD.PERSONAS_RTU WHERE NIT = '{Persona.nit}'";
 
                 cmd.CommandText = sql;
-                cmd.Parameters.AddWithValue("@NIT", Persona.nit);
-
+                //cmd.Parameters.AddWithValue("@NIT", Persona.nit);
                 reader = cmd.ExecuteReader();
+
 
                 while (reader.Read())
                 {
@@ -79,14 +80,17 @@ namespace ConsultaRTU.BaseDatos
                     Respuesta.nacionalidad = reader.GetString(10);
                     Respuesta.estado_civil = reader.GetString(11);
                     Respuesta.nombre_comercial = reader.GetString(12);
-                    Respuesta.numero_establecimiento = reader.GetInt32(13);
                     Respuesta.estado_establecimiento = reader.GetString(14);
                     Respuesta.ultima_actualizacion = reader.GetDateTime(15);
+                    Respuesta.numero_establecimiento = reader.GetInt32(13);
+                    //Respuesta.numero_establecimiento = reader.GetInt32(13);
+                    
+                    
                 }
                 conexion.Close();
                 return Respuesta;
             }
-            catch
+            catch(Exception ex)
             {
                 conexion.Close();
                 return Respuesta;
