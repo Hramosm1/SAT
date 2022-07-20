@@ -195,8 +195,8 @@ namespace ConsultaRTU
                 }
 
 
-                driver.Close();
-                driver.Quit();
+                //driver.Close();
+                //driver.Quit();
                 dataGrid.DataSource = lst;
                 this.btnDescargar.Enabled = true;
                 frmExitos.ErrorMensaje("Archvio Cargado con Exito");
