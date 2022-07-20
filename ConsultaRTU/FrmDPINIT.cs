@@ -102,7 +102,7 @@ namespace ConsultaRTU
 
                 while (bandera)
                 {
-                    //Thread.Sleep(500);
+                    Thread.Sleep(500);
                     if (driver.PageSource.Contains("Ingresar el Código Único de Identificación CUI"))
                     {
                         bandera = false;
@@ -132,13 +132,13 @@ namespace ConsultaRTU
                             {
                                 bandera2 = false;
                             }
-                            //Thread.Sleep(500);
+                            Thread.Sleep(500);
                             
                         }
                         
                         var dpi = driver.FindElement(By.XPath("/html/body/app-my-app/app-consulta-cui-nit/div/div/div/div/div/div/div[3]/div[1]/form/div/div/mat-form-field/div/div[1]/div/input"));
                         dpi.SendKeys(persona.dpi.ToString());
-                        
+
                         boton = driver.FindElement(By.XPath("/html/body/app-my-app/app-consulta-cui-nit/div/div/div/div/div/div/div[3]/div[1]/form/button[1]"));
                         boton.Submit();
                        
@@ -195,8 +195,8 @@ namespace ConsultaRTU
                 }
 
 
-                driver.Close();
-                driver.Quit();
+                //driver.Close();
+                //driver.Quit();
                 dataGrid.DataSource = lst;
                 this.btnDescargar.Enabled = true;
                 frmExitos.ErrorMensaje("Archvio Cargado con Exito");
