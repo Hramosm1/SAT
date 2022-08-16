@@ -122,7 +122,7 @@ namespace ConsultaRTU.BaseDatos
             List<e_caracteristicas> ListRespuesta = new List<e_caracteristicas>();
             e_caracteristicas Respuesta = new e_caracteristicas();
             SqlDataReader reader;
-            int activo = 1;
+            int activo = 0;
 
             while(activo == 0)
             {
@@ -174,7 +174,7 @@ namespace ConsultaRTU.BaseDatos
                     SqlCommand cmd = conexion.CreateCommand();
                     activo = 1;
 
-                    string sql = " SELECT NIT, CODIGO_IMPUESTO, NOMBRE_IMPUESTO, TIPO_CONTRIBUYENTE, CLASIFICACION, REGIMEN, PERiODO, estatus, FECHA FROM SALUD.IvA_RTU WHERE NIT = @NIT'";
+                    string sql = " SELECT NIT, CODIGO_IMPUESTO, NOMBRE_IMPUESTO, TIPO_CONTRIBUYENTE, CLASIFICACION, REGIMEN, PERiODO, estatus, FECHA FROM SALUD.IvA_RTU WHERE NIT = @NIT";
                     cmd.CommandText = sql;
                     cmd.Parameters.AddWithValue("@NIT", Persona.nit);
 
