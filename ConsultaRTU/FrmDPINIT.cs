@@ -171,6 +171,7 @@ namespace ConsultaRTU
                             persona.nombre = driver.FindElement(By.XPath("/html/body/app-my-app/app-consulta-cui-nit/div/div/div[2]/div/div/div[2]/div/div[3]/div[2]")).Text;
                             string wtel = driver.FindElement(By.XPath("/html/body/app-my-app/app-consulta-cui-nit/div/div/div[2]/div/div/div[2]/div/div[4]/div[2]")).Text;
                             persona.fecha = Convert.ToDateTime(wtel);
+                            Thread.Sleep(500);
                             persona.notificacion2 = driver.FindElement(By.XPath("/html/body/app-my-app/app-consulta-cui-nit/div/div/mat-card/div/table/tbody/tr/td[2]/mat-card-content[2]")).Text;
                             string FechaCreacion = driver.FindElement(By.XPath("/html/body/app-my-app/app-consulta-cui-nit/div/div/div[2]/div/div/div[2]/div/div[6]/div[2]")).Text;
                             persona.fechacreacion = Convert.ToDateTime(FechaCreacion);
@@ -181,6 +182,7 @@ namespace ConsultaRTU
 
                         
                         boton2.Submit();
+                        Thread.Sleep(500);
 
                         bandera2 = true;
                         while (bandera2)
