@@ -78,10 +78,10 @@ namespace ConsultaRTU.BaseDatos
                         " CEDULA, FECHA_NACIMIENTO, SEXO, NACIONALIDAD, ESTADO_CIVIL, NOMBRE_COMERCIAL, NUMERO_ESTABLECIMIENTO, " +
                         " ESTADO_ESTABLECIMIENTO, ULTIMA_ACTUALIZACION " +
                         " FROM SALUD.PERSONAS_RTU WHERE NIT = @NIT";*/
-                    sql = $"SELECT isnull(NIT,''), isnull(DPI,''), isnull(PRIMER_NOMBRE,''), isnull(SEGUNDO_NOMBRE,''), isnull(PRIMER_APELLIDO,''), isnull(SEGUNDO_APELLIDO,''), isnull(APELLIDO_CASADA,''),  isnull(CEDULA,''), FECHA_NACIMIENTO, isnull(SEXO,''), isnull(NACIONALIDAD,''), isnull(ESTADO_CIVIL,''), isnull(NOMBRE_COMERCIAL,''), convert(INT,NUMERO_ESTABLECIMIENTO),  isnull(ESTADO_ESTABLECIMIENTO,''), ULTIMA_ACTUALIZACION  FROM SALUD.PERSONAS_RTU WHERE NIT = '{Persona.nit}'";
+                    sql = $"SELECT isnull(NIT,''), isnull(DPI,''), isnull(PRIMER_NOMBRE,''), isnull(SEGUNDO_NOMBRE,''), isnull(PRIMER_APELLIDO,''), isnull(SEGUNDO_APELLIDO,''), isnull(APELLIDO_CASADA,''),  isnull(CEDULA,''), FECHA_NACIMIENTO, isnull(SEXO,''), isnull(NACIONALIDAD,''), isnull(ESTADO_CIVIL,''), isnull(NOMBRE_COMERCIAL,''), convert(INT,NUMERO_ESTABLECIMIENTO),  isnull(ESTADO_ESTABLECIMIENTO,''), isnull(ULTIMA_ACTUALIZACION,'01/01/1900')  FROM SALUD.PERSONAS_RTU WHERE NIT = '{Persona.nit}'";
 
                     cmd.CommandText = sql;
-                    //cmd.Parameters.AddWithValue("@NIT", Persona.nit);
+                    cmd.Parameters.AddWithValue("@NIT", Persona.nit);
                     reader = cmd.ExecuteReader();
 
                     while (reader.Read())
@@ -596,9 +596,23 @@ namespace ConsultaRTU.BaseDatos
                                 cmd2.Parameters.AddWithValue("@NIT", Personas.nit);
                                 cmd2.Parameters.AddWithValue("@DPI", Personas.dpi);
                                 cmd2.Parameters.AddWithValue("@PRIMER_NOMBRE", Personas.primer_nombre);
-                                cmd2.Parameters.AddWithValue("@SEGUNDO_NOMBRE", Personas.segundo_nombre);
+                                if (Personas.segundo_nombre == null)
+                                {
+                                    cmd2.Parameters.AddWithValue("@SEGUNDO_NOMBRE", DBNull.Value);
+                                }
+                                else
+                                {
+                                    cmd2.Parameters.AddWithValue("@SEGUNDO_NOMBRE", Personas.segundo_nombre);
+                                }
                                 cmd2.Parameters.AddWithValue("@PRIMER_APELLIDO", Personas.primer_apellido);
-                                cmd2.Parameters.AddWithValue("@SEGUNDO_APELLIDO", Personas.segundo_apellido);
+                                if (Personas.segundo_apellido == null)
+                                {
+                                    cmd2.Parameters.AddWithValue("@SEGUNDO_APELLIDO", DBNull.Value);
+                                }
+                                else
+                                {
+                                    cmd2.Parameters.AddWithValue("@SEGUNDO_APELLIDO", Personas.segundo_apellido);
+                                }
                                 if (Personas.apellido_casada == null)
                                 {
                                     cmd2.Parameters.AddWithValue("@APELLIDO_CASADA", DBNull.Value);

@@ -37,6 +37,12 @@ namespace ConsultaRTU
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
             this.dataGrid = new Bunifu.UI.WinForms.BunifuDataGridView();
+            this.dpiDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nitDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nombreDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.fechaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.fechacreacion = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.notificacion2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ePERSONABindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.panel2 = new System.Windows.Forms.Panel();
             this.bunifuCustomLabel1 = new Bunifu.Framework.UI.BunifuCustomLabel();
@@ -44,12 +50,6 @@ namespace ConsultaRTU
             this.btnProcesar = new Bunifu.Framework.UI.BunifuImageButton();
             this.btnConsultaLocal = new Bunifu.Framework.UI.BunifuImageButton();
             this.bunifuToolTip1 = new Bunifu.UI.WinForms.BunifuToolTip(this.components);
-            this.dpiDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nitDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nombreDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.fechaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.fechacreacion = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.notificacion2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGrid)).BeginInit();
@@ -158,6 +158,51 @@ namespace ConsultaRTU
             this.bunifuToolTip1.SetToolTip(this.dataGrid, "");
             this.bunifuToolTip1.SetToolTipIcon(this.dataGrid, null);
             this.bunifuToolTip1.SetToolTipTitle(this.dataGrid, "");
+            // 
+            // dpiDataGridViewTextBoxColumn
+            // 
+            this.dpiDataGridViewTextBoxColumn.DataPropertyName = "dpi";
+            this.dpiDataGridViewTextBoxColumn.HeaderText = "DPI";
+            this.dpiDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.dpiDataGridViewTextBoxColumn.Name = "dpiDataGridViewTextBoxColumn";
+            this.dpiDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // nitDataGridViewTextBoxColumn
+            // 
+            this.nitDataGridViewTextBoxColumn.DataPropertyName = "nit";
+            this.nitDataGridViewTextBoxColumn.HeaderText = "NIT";
+            this.nitDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.nitDataGridViewTextBoxColumn.Name = "nitDataGridViewTextBoxColumn";
+            this.nitDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // nombreDataGridViewTextBoxColumn
+            // 
+            this.nombreDataGridViewTextBoxColumn.DataPropertyName = "nombre";
+            this.nombreDataGridViewTextBoxColumn.FillWeight = 250F;
+            this.nombreDataGridViewTextBoxColumn.HeaderText = "NOMBRE Y APELLIDO";
+            this.nombreDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.nombreDataGridViewTextBoxColumn.Name = "nombreDataGridViewTextBoxColumn";
+            this.nombreDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // fechaDataGridViewTextBoxColumn
+            // 
+            this.fechaDataGridViewTextBoxColumn.DataPropertyName = "fecha";
+            this.fechaDataGridViewTextBoxColumn.HeaderText = "FECHA_NACIMIENTO";
+            this.fechaDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.fechaDataGridViewTextBoxColumn.Name = "fechaDataGridViewTextBoxColumn";
+            this.fechaDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // fechacreacion
+            // 
+            this.fechacreacion.DataPropertyName = "fechacreacion";
+            this.fechacreacion.HeaderText = "FECHA_CREACION";
+            this.fechacreacion.Name = "fechacreacion";
+            // 
+            // notificacion2
+            // 
+            this.notificacion2.DataPropertyName = "notificacion2";
+            this.notificacion2.HeaderText = "NOTIFICACION";
+            this.notificacion2.Name = "notificacion2";
             // 
             // ePERSONABindingSource
             // 
@@ -277,51 +322,6 @@ namespace ConsultaRTU
             this.bunifuToolTip1.TitleForeColor = System.Drawing.Color.Black;
             this.bunifuToolTip1.ToolTipPosition = new System.Drawing.Point(0, 0);
             this.bunifuToolTip1.ToolTipTitle = null;
-            // 
-            // dpiDataGridViewTextBoxColumn
-            // 
-            this.dpiDataGridViewTextBoxColumn.DataPropertyName = "dpi";
-            this.dpiDataGridViewTextBoxColumn.HeaderText = "DPI";
-            this.dpiDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.dpiDataGridViewTextBoxColumn.Name = "dpiDataGridViewTextBoxColumn";
-            this.dpiDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // nitDataGridViewTextBoxColumn
-            // 
-            this.nitDataGridViewTextBoxColumn.DataPropertyName = "nit";
-            this.nitDataGridViewTextBoxColumn.HeaderText = "NIT";
-            this.nitDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.nitDataGridViewTextBoxColumn.Name = "nitDataGridViewTextBoxColumn";
-            this.nitDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // nombreDataGridViewTextBoxColumn
-            // 
-            this.nombreDataGridViewTextBoxColumn.DataPropertyName = "nombre";
-            this.nombreDataGridViewTextBoxColumn.FillWeight = 250F;
-            this.nombreDataGridViewTextBoxColumn.HeaderText = "NOMBRE Y APELLIDO";
-            this.nombreDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.nombreDataGridViewTextBoxColumn.Name = "nombreDataGridViewTextBoxColumn";
-            this.nombreDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // fechaDataGridViewTextBoxColumn
-            // 
-            this.fechaDataGridViewTextBoxColumn.DataPropertyName = "fecha";
-            this.fechaDataGridViewTextBoxColumn.HeaderText = "FECHA_NACIMIENTO";
-            this.fechaDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.fechaDataGridViewTextBoxColumn.Name = "fechaDataGridViewTextBoxColumn";
-            this.fechaDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // fechacreacion
-            // 
-            this.fechacreacion.DataPropertyName = "fechacreacion";
-            this.fechacreacion.HeaderText = "FECHA_CREACION";
-            this.fechacreacion.Name = "fechacreacion";
-            // 
-            // notificacion2
-            // 
-            this.notificacion2.DataPropertyName = "notificacion2";
-            this.notificacion2.HeaderText = "NOTIFICACION";
-            this.notificacion2.Name = "notificacion2";
             // 
             // FrmDPINIT
             // 
