@@ -81,7 +81,7 @@ namespace ConsultaRTU.BaseDatos
                     sql = $"SELECT isnull(NIT,''), isnull(DPI,''), isnull(PRIMER_NOMBRE,''), isnull(SEGUNDO_NOMBRE,''), isnull(PRIMER_APELLIDO,''), isnull(SEGUNDO_APELLIDO,''), isnull(APELLIDO_CASADA,''),  isnull(CEDULA,''), FECHA_NACIMIENTO, isnull(SEXO,''), isnull(NACIONALIDAD,''), isnull(ESTADO_CIVIL,''), isnull(NOMBRE_COMERCIAL,''), convert(INT,NUMERO_ESTABLECIMIENTO),  isnull(ESTADO_ESTABLECIMIENTO,''), isnull(ULTIMA_ACTUALIZACION,'01/01/1900')  FROM SALUD.PERSONAS_RTU WHERE NIT = '{Persona.nit}'";
 
                     cmd.CommandText = sql;
-                    cmd.Parameters.AddWithValue("@NIT", Persona.nit);
+                    //cmd.Parameters.AddWithValue("@NIT", Persona.nit);
                     reader = cmd.ExecuteReader();
 
                     while (reader.Read())
@@ -264,12 +264,13 @@ namespace ConsultaRTU.BaseDatos
                 try
                 {
                     conexion.Open();
+                    activo = 1;
                     SqlCommand cmd = conexion.CreateCommand();
                     SqlTransaction transaction;
                     transaction = conexion.BeginTransaction();
                     cmd.Connection = conexion;
                     cmd.Transaction = transaction;
-                    activo = 1;
+                    
 
                     try
                     {
@@ -313,11 +314,14 @@ namespace ConsultaRTU.BaseDatos
                 try
                 {
                     conexion.Open();
+                    activo = 1;
                     SqlCommand cmd = conexion.CreateCommand();
                     SqlTransaction transaction;
                     transaction = conexion.BeginTransaction();
                     cmd.Connection = conexion;
                     cmd.Transaction = transaction;
+                    
+
 
                     try
                     {
