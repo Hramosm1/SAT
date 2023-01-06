@@ -155,15 +155,23 @@ namespace ConsultaRTU
                                 bandera2 = false;
                                
                             }
-                            if (driver.PageSource.Contains("Esta consulta no contiene datos") || driver.PageSource.Contains("CUI:"))
+                            if (driver.PageSource.Contains("Esta consulta no contiene datos") || driver.PageSource.Contains("CUI:") || driver.PageSource.Contains("Esta consulta contiene mas de un resultado"))
                             {
                                 bandera2 = false;
                             }
                         }
 
-                        if (driver.PageSource.Contains("Esta consulta no contiene datos"))
+                        if (driver.PageSource.Contains("Esta consulta no contiene datos") || driver.PageSource.Contains("Esta consulta contiene mas de un resultado"))
                         {
-                            persona.nombre = "Esta consulta no contiene datos";
+                           
+                            if (driver.PageSource.Contains("Esta consulta no contiene datos"))
+                            {
+                                persona.nombre = "Esta consulta no contiene datos";
+                            }
+                            if (driver.PageSource.Contains("Esta consulta contiene mas de un resultado"))
+                            {
+                                persona.nombre = "Esta consulta contiene mas de un resultado";
+                            }
                         }
                         else if (persona.nombre != "Esta consulta no contiene datos")
                         {
@@ -199,11 +207,11 @@ namespace ConsultaRTU
                 }
 
 
-                //driver.Close();
-                //driver.Quit();
+                driver.Close();
+                driver.Quit();
                 dataGrid.DataSource = lst;
                 this.btnDescargar.Enabled = true;
-                frmExitos.ErrorMensaje("Archvio Cargado con Exito");
+                frmExitos.ErrorMensaje("Archvio procesado con Exito");
             }
             catch (Exception ex)
             {
