@@ -94,14 +94,14 @@ namespace ConsultaRTU.BaseDatos
                         Respuesta.segundo_apellido = reader.GetString(5);
                         Respuesta.apellido_casada = reader.GetString(6);
                         Respuesta.cedula = reader.GetString(7);
-                        Respuesta.fecha = reader.GetDateTime(8);
+                        Respuesta.fecha = reader.IsDBNull(8) ? DateTime.MinValue : reader.GetDateTime(8);
                         Respuesta.sexo = reader.GetString(9);
                         Respuesta.nacionalidad = reader.GetString(10);
                         Respuesta.estado_civil = reader.GetString(11);
                         Respuesta.nombre_comercial = reader.GetString(12);
                         Respuesta.estado_establecimiento = reader.GetString(14);
-                        Respuesta.ultima_actualizacion = reader.GetDateTime(15);
-                        Respuesta.numero_establecimiento = reader.GetInt32(13);
+                        Respuesta.ultima_actualizacion = reader.IsDBNull(15) ? DateTime.MinValue : reader.GetDateTime(15);
+                        Respuesta.numero_establecimiento = reader.IsDBNull(13) ? 0 : reader.GetInt32(13);
                     }
                     conexion.Close();
                     return Respuesta;
