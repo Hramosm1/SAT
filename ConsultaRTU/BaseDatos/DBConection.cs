@@ -597,9 +597,32 @@ namespace ConsultaRTU.BaseDatos
 
                                 cmd2.CommandText = sql;
 
-                                cmd2.Parameters.AddWithValue("@NIT", Personas.nit);
-                                cmd2.Parameters.AddWithValue("@DPI", Personas.dpi);
-                                cmd2.Parameters.AddWithValue("@PRIMER_NOMBRE", Personas.primer_nombre);
+                               
+                                if (Personas.nit == null)
+                                {
+                                    cmd2.Parameters.AddWithValue("@NIT", DBNull.Value);
+                                }
+                                else
+                                {
+                                    cmd2.Parameters.AddWithValue("@NIT", Personas.nit);
+                                }
+                                if (Personas.dpi == null)
+                                {
+                                    cmd2.Parameters.AddWithValue("@DPI", DBNull.Value);
+                                }
+                                else
+                                {
+                                    cmd2.Parameters.AddWithValue("@DPI", Personas.dpi);
+                                }
+                               
+                                if (Personas.primer_nombre == null)
+                                {
+                                    cmd2.Parameters.AddWithValue("@PRIMER_NOMBRE", DBNull.Value);
+                                }
+                                else
+                                {
+                                    cmd2.Parameters.AddWithValue("@PRIMER_NOMBRE", Personas.primer_nombre);
+                                }
                                 if (Personas.segundo_nombre == null)
                                 {
                                     cmd2.Parameters.AddWithValue("@SEGUNDO_NOMBRE", DBNull.Value);
@@ -608,7 +631,15 @@ namespace ConsultaRTU.BaseDatos
                                 {
                                     cmd2.Parameters.AddWithValue("@SEGUNDO_NOMBRE", Personas.segundo_nombre);
                                 }
-                                cmd2.Parameters.AddWithValue("@PRIMER_APELLIDO", Personas.primer_apellido);
+                                
+                                if (Personas.primer_apellido == null)
+                                {
+                                    cmd2.Parameters.AddWithValue("@PRIMER_APELLIDO", DBNull.Value);
+                                }
+                                else
+                                {
+                                    cmd2.Parameters.AddWithValue("@PRIMER_APELLIDO", Personas.primer_apellido);
+                                }
                                 if (Personas.segundo_apellido == null)
                                 {
                                     cmd2.Parameters.AddWithValue("@SEGUNDO_APELLIDO", DBNull.Value);
@@ -633,10 +664,39 @@ namespace ConsultaRTU.BaseDatos
                                 {
                                     cmd2.Parameters.AddWithValue("@CEDULA", Personas.cedula);
                                 }
-                                cmd2.Parameters.AddWithValue("@FECHA_NACIMIENTO", Personas.fecha);
-                                cmd2.Parameters.AddWithValue("@SEXO", Personas.sexo);
-                                cmd2.Parameters.AddWithValue("@NACIONALIDAD", Personas.nacionalidad);
-                                cmd2.Parameters.AddWithValue("@ESTADO_CIVIL", Personas.estado_civil);
+                                ;
+                                if (Personas.fecha.ToString("dd/MM/yyyy") == "01/01/0001")
+                                {
+                                    cmd2.Parameters.AddWithValue("@FECHA_NACIMIENTO", DBNull.Value);
+                                }
+                                else
+                                {
+                                    cmd2.Parameters.AddWithValue("@FECHA_NACIMIENTO", Personas.fecha);
+                                }
+                                if (Personas.sexo == null)
+                                {
+                                    cmd2.Parameters.AddWithValue("@SEXO", DBNull.Value);
+                                }
+                                else
+                                {
+                                    cmd2.Parameters.AddWithValue("@SEXO", Personas.sexo);
+                                }
+                                if (Personas.nacionalidad == null)
+                                {
+                                    cmd2.Parameters.AddWithValue("@NACIONALIDAD", DBNull.Value);
+                                }
+                                else
+                                {
+                                    cmd2.Parameters.AddWithValue("@NACIONALIDAD", Personas.nacionalidad);
+                                }
+                                if (Personas.estado_civil == null)
+                                {
+                                    cmd2.Parameters.AddWithValue("@ESTADO_CIVIL", DBNull.Value);
+                                }
+                                else
+                                {
+                                    cmd2.Parameters.AddWithValue("@ESTADO_CIVIL", Personas.estado_civil);
+                                }
                                 if (Personas.nombre_comercial == null)
                                 {
                                     cmd2.Parameters.AddWithValue("@NOMBRE_COMERCIAL", DBNull.Value);
@@ -645,7 +705,14 @@ namespace ConsultaRTU.BaseDatos
                                 {
                                     cmd2.Parameters.AddWithValue("@NOMBRE_COMERCIAL", Personas.nombre_comercial);
                                 }
-                                cmd2.Parameters.AddWithValue("@NUMERO_ESTABLECIMIENTO", Personas.numero_establecimiento);
+                                if (Personas.numero_establecimiento == null)
+                                {
+                                    cmd2.Parameters.AddWithValue("@NUMERO_ESTABLECIMIENTO", DBNull.Value);
+                                }
+                                else
+                                {
+                                    cmd2.Parameters.AddWithValue("@NUMERO_ESTABLECIMIENTO", Personas.numero_establecimiento);
+                                }
                                 if (Personas.estado_establecimiento == null)
                                 {
                                     cmd2.Parameters.AddWithValue("@ESTADO_ESTABLECIMIENTO", DBNull.Value);

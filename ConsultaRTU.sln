@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsultaRTU", "ConsultaRTU\
 EndProject
 Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "Consulta_RTU", "Consulta_RTU\Consulta_RTU.vdproj", "{D029CF18-D699-4E93-AC60-3A2DCDEB49A2}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "twoCaptcha", "twoCaptcha\twoCaptcha.csproj", "{6F6A81DD-B969-4DE1-895F-8B28609DBD0E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -19,6 +21,10 @@ Global
 		{31EBF80B-2688-480B-80D2-15154E6425D3}.Release|Any CPU.Build.0 = Release|Any CPU
 		{D029CF18-D699-4E93-AC60-3A2DCDEB49A2}.Debug|Any CPU.ActiveCfg = Debug
 		{D029CF18-D699-4E93-AC60-3A2DCDEB49A2}.Release|Any CPU.ActiveCfg = Release
+		{6F6A81DD-B969-4DE1-895F-8B28609DBD0E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6F6A81DD-B969-4DE1-895F-8B28609DBD0E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6F6A81DD-B969-4DE1-895F-8B28609DBD0E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6F6A81DD-B969-4DE1-895F-8B28609DBD0E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
